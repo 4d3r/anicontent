@@ -14,8 +14,8 @@ class AnimeService {
         const files = utils.getFiles(ANIME_DIRECTORY)
         const animes = []
 
-        files.forEach(fileName => {
-            const data = require(path.join(ANIME_DIRECTORY, fileName))
+        files.forEach(function(file) {
+            const data = require(path.join(ANIME_DIRECTORY, file))
 
             if (!data || !data.name) {
                 return;
@@ -36,7 +36,7 @@ class AnimeService {
 
         let target = null
 
-        library.forEach(anime => {
+        library.forEach(function(anime){
             if (!anime.id || anime.id != id) {
                 return;
             }

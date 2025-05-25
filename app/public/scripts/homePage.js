@@ -1,12 +1,12 @@
 function addOnClickToClass(className, callback) {
-    const elements = document.querySelectorAll(`.${className}`);
-    elements.forEach(element => {
+    const elements = document.querySelectorAll(`.${className}`)
+
+    elements.forEach(function(element){
         element.onclick = callback;
     });
 }
 
 function handleClick(event) {
-    console.log()
     window.location.href = `/anime/${event.currentTarget.id}`;
 }
 

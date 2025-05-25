@@ -15,7 +15,10 @@ async function getPopular() {
 
 async function getHomePage(request, response) {
     const animes = await getRecommended()
-    console.log(animes)
+
+    if (!animes) {
+        return
+    }
 
     response.render(page, {
         content: animes
