@@ -3,10 +3,13 @@ const path = require('path')
 
 const router = express.Router()
 
-const directory = '../public/views/'
+const controller = require('../controllers/homeController')
+
+const views = '../public/views/'
 const icons = '../images/'
 
 router.get('/', function(request, response) {
+    controller.getAnimesFromDatabase()
     response.render(path.join(directory, 'homePage'), {
         array: [
             {id: 'uebishe', name: 'Мой братик больше не братик!', icon: path.join(icons, 'test.jpg')},

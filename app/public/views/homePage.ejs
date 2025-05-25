@@ -12,13 +12,13 @@
 
     <div class="objects-list">
         <% 
-        for (let i = 0; i < array.length; i ++) { 
+        for (let i = 0; i < content.length; i ++) { 
             %>
-            <div id="<%= array[i].id %>" class="object-base __trigger">
+            <div id="<%= content[i].id %>" class="object-base __trigger">
                 <div class="object-container">
-                    <img src="<%= array[i].icon %>" alt="Example Image">
+                    <img src="<%= content[i].icon %>" alt="Example Image">
                     <div class="object-gradient"></div>
-                    <div class="object-title"><%= array[i].name %></div>
+                    <div class="object-title"><%= content[i].name %></div>
                 </div>
             </div>
             <% 
