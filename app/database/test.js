@@ -1,5 +1,4 @@
 const path = require('path')
-const fs = require('fs')
 
 const id = path.basename(__filename, path.extname(__filename))
 

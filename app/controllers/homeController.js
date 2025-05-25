@@ -1,40 +1,25 @@
-const path = require('path');
-const fs = require('fs');
+const path = require('path')
+const page = path.join(__dirname, '../public/views', 'homePage')
 
-const ANIME_DIRECTORY = path.join(__dirname, '../database');
+const animeService = require(path.join(__dirname, '../services/', 'animeService.js'))
 
-function getFiles(folderPath) {
-  try {
-    if (!fs.existsSync(folderPath)) {
-      console.error(`Directory does not exist: ${folderPath}`);
-      return [];
-    }
-    
-    return fs.readdirSync(folderPath);
-  } 
-  catch(err) {
-    console.error("Error reading directory:", err);
-    return [];
-  }
+async function getRecommended() {
+    // добавить какую-то логику для рекомендаций (можно просто рандомные анимки кидать)
+    return await animeService.getLibrary()
 }
 
-function getAnimesFromDatabase() {
-  const files = getFiles(ANIME_DIRECTORY);
-  const animes = []
-
-  files.forEach(fileName => {
-    const data = require(path.join(ANIME_DIRECTORY, fileName))
-
-    if (!data || !data.name) {
-      return;
-    }
-
-    animes.push(data)
-  });
-
-  console.log(animes)
-
-  return animes
+async function getPopular() {
+    // добавить какую-то логику для популярных анимешек (можно также рандом)
+    return await animeService.getLibrary()
 }
 
-module.exports = {getAnimesFromDatabase}
+async function getHomePage(request, response) {
+    const animes = await getRecommended()
+    console.log(animes)
+
+    response.render(page, {
+        content: animes
+    })
+}
+
+module.exports = {getHomePage}

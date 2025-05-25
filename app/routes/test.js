@@ -1,8 +1,8 @@
 const express = require('express')
 const router = express.Router()
 
-router.get('/:id', function(request, response) {
-    response.json(request.params.id)
-})
+const testController = require('../controllers/testController')
+
+router.get('/:id', testController.getAnimeById)
 
 module.exports = router
