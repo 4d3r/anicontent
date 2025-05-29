@@ -1,7 +1,10 @@
 const express = require('express')
+const path = require('path')
+
 const router = express.Router()
 
 const controller = require('./home.controller')
+const errorPage = path.join(process.cwd(), 'public', 'views', 'error')
 
 function getPage(request, response) {
     const template = controller.getPageTemplate()
@@ -11,13 +14,12 @@ function getPage(request, response) {
     }
 
     if (!template) {
-        response.sendStatus(404)
-        return
+        response.sendStatus(404).render(errorPage)
+        return 
     }
 
-
     if (!data) {
-        response.sendStatus(404)
+        response.sendStatus(404).render(errorPage)
         return
     }
 

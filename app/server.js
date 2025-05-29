@@ -21,8 +21,6 @@ function setupRoutes() {
         const exists = fs.existsSync(index)
         if (!exists) { return }
 
-        console.log(`${index} exists.`)
-
         const start = require(index)
         if (!start) { return }
 
@@ -35,6 +33,22 @@ app.use(express.static(public))
 
 setupDatabase()
 setupRoutes()
+
+app.use(function(req, res, next) {
+    res.status(404)
+
+    if (req.accepts('html')) {
+        res.render(path.join(process.cwd(), 'public', 'views', 'error'), { url: req.url })
+        return
+    }
+
+    if (req.accepts('json')) {
+        res.json({ error: 'Not found' })
+        return
+    }
+
+    res.type('txt').send('Not found')
+});
 
 app.listen(port, () => {
     console.log(`Server is listening on port ${port}`)

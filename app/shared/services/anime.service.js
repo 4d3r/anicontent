@@ -2,8 +2,8 @@ const path = require('path')
 
 const animeModel = require(path.join(process.cwd(), 'shared', 'models', 'anime.js'))
 
-function createAnime(...args) {
-    return new animeModel.Anime(...args)
+function createAnime(config) {
+    return new animeModel.Anime(config)
 }
 
 function getAnimes() {
