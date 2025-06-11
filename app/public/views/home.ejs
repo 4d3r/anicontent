@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/styles/theme.css" rel="stylesheet">
+    <link href="/styles/list.css" rel="stylesheet">
+    <link href="/styles/header.css" rel="stylesheet">
+    <title>AniContent</title>
+</head>
+<body>
+    <%- include("./elements/header.ejs") %>
+
+    <p>Последние обновления</p>
+    <div class="objects-list">
+        <% 
+        for (let i = 0; i < latest.length; i ++) { 
+            %>
+            <div id="<%= latest[i].id %>" class="object-base __trigger">
+                <div class="object-container">
+                    <img src="<%= latest[i].icon %>" alt="Example Image">
+                    <div class="object-gradient"></div>
+                    <div class="object-title"><%= latest[i].name %></div>
+                </div>
+            </div>
+            <% 
+        } 
+        %>
+    </div>
+
+    <p>Популярные</p>
+    <div class="objects-list">
+        <% 
+        for (let i = 0; i < favorited.length; i ++) { 
+            %>
+            <div id="<%= favorited[i].id %>" class="object-base __trigger">
+                <div class="object-container">
+                    <img src="<%= favorited[i].icon %>" alt="Example Image">
+                    <div class="object-gradient"></div>
+                    <div class="object-title"><%= favorited[i].name %></div>
+                </div>
+            </div>
+            <% 
+        } 
+        %>
+    </div>
+
+    
+
+    <script src="/scripts/home.js"></script>
+</body>
+</html>

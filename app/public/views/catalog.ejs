@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/styles/theme.css" rel="stylesheet">
+    <link href="/styles/list.css" rel="stylesheet">
+    <link href="/styles/header.css" rel="stylesheet">
+    <title>AniContent</title>
+</head>
+<body>
+    <%- include("./elements/header.ejs") %>
+
+    <div class="objects-list">
+        <% 
+        for (let i = 0; i < animes.length; i ++) { 
+            %>
+            <div id="<%= animes[i].id %>" class="object-base __trigger">
+                <div class="object-container">
+                    <img src="<%= animes[i].icon %>" alt="Example Image">
+                    <div class="object-gradient"></div>
+                    <div class="object-title"><%= animes[i].name %></div>
+                </div>
+            </div>
+            <% 
+        } 
+        %>
+    </div>
+
+    <script src="../scripts/home.js"></script>
+</body>
+</html>

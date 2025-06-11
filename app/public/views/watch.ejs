@@ -1,0 +1,20 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/styles/theme.css" rel="stylesheet">
+    <link href="/styles/list.css" rel="stylesheet">
+    <link href="/styles/header.css" rel="stylesheet">
+    <title>AniContent</title>
+</head>
+<body>
+    <%- include("./elements/header.ejs") %>
+
+    <div align="center" style="width: 50%;">
+        <video width="100%" controls>
+            <source src="/stream/<%= id %>/<%= index %>" type="video/mp4"/>
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</body>
+</html>
