@@ -28,6 +28,8 @@ function setupRoutes() {
     })
 }
 
+console.log("Current working directory: ", process.cwd());
+
 app.set('view engine', 'ejs')
 app.use(express.static(public))
 
