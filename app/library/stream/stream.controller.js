@@ -1,7 +1,9 @@
 const path = require('path')
 const fs = require('fs')
 
-const animeService = require(path.join(process.cwd(), 'shared', 'services', 'anime.service.js'))
+const directory = path.join(process.cwd(), 'app')
+
+const animeService = require(path.join(directory, 'shared', 'services', 'anime.service.js'))
 
 const CHUNK_SIZE = 10 ** 6
 

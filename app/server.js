@@ -5,8 +5,10 @@ const fs = require('fs')
 const app = express()
 const port = 3000
 
-const public = path.join(process.cwd(), 'public')
-const library = path.join(process.cwd(), 'library')
+const directory = path.join(process.cwd(), 'app')
+
+const public = path.join(directory, 'public')
+const library = path.join(directory, 'library')
 
 function setupDatabase() {
     const database = require('./database/index')
@@ -28,7 +30,7 @@ function setupRoutes() {
     })
 }
 
-console.log("Current working directory: ", process.cwd());
+console.log("Current working directory: ", directory);
 
 app.set('view engine', 'ejs')
 app.use(express.static(public))
@@ -40,7 +42,7 @@ app.use(function(req, res, next) {
     res.status(404)
 
     if (req.accepts('html')) {
-        res.render(path.join(process.cwd(), 'public', 'views', 'error'), { url: req.url })
+        res.render(path.join(directory, 'public', 'views', 'error'), { url: req.url })
         return
     }
 

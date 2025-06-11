@@ -2,9 +2,10 @@ const express = require('express')
 const path = require('path')
 
 const router = express.Router()
+const directory = path.join(process.cwd(), 'app')
 
 const controller = require('./catalog.controller')
-const errorPage = path.join(process.cwd(), 'public', 'views', 'error')
+const errorPage = path.join(directory, 'public', 'views', 'error')
 
 function getPage(request, response) {
     const template = controller.getPageTemplate()

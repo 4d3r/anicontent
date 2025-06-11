@@ -1,6 +1,7 @@
 const path = require('path')
+const directory = path.join(process.cwd(), 'app')
 
-const animeModel = require(path.join(process.cwd(), 'shared', 'models', 'anime.js'))
+const animeModel = require(path.join(directory, 'shared', 'models', 'anime.js'))
 
 function createAnime(config) {
     return new animeModel.Anime(config)

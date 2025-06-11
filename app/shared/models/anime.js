@@ -1,7 +1,9 @@
 const path = require('path')
 
+const directory = path.join(process.cwd(), 'app')
+
 const images = '/images/'
-const videos = path.join(process.cwd(), 'public', 'videos')
+const videos = path.join(directory, 'public', 'videos')
 
 let animes = []
 
