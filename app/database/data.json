@@ -3,9 +3,14 @@
         "id": "classroom-of-elite",
         "name": "Класс превосходства",
         "desc": "Эти чертовы людишки не знают, что я самый главный манипулятор... Хех))",
-        "icon": "Icon.jpg",
-        "series": [
-            {"index": "1", "file": "1.mp4"}
+        "icon": "icon.jpg",
+        "episodes": [],
+        "keyframes": [
+            "placeholder.jpg",
+            "placeholder.jpg",
+            "placeholder.jpg",
+            "placeholder.jpg",
+            "placeholder.jpg"
         ]
     },
 
@@ -13,9 +18,14 @@
         "id": "konosuba",
         "name": "Этот замечательный мир!",
         "desc": "Я иссекайнулся в какой-то дыре и теперь у менять есть гарем из тупоголовых баб!",
-        "icon": "Icon.jpg",
-        "series": [
-            {"index": "1", "file": "1.mp4"}
+        "icon": "icon.jpg",
+        "episodes": [],
+        "keyframes": [
+            "placeholder.jpg",
+            "placeholder.jpg",
+            "placeholder.jpg",
+            "placeholder.jpg",
+            "placeholder.jpg"
         ]
     },
 
@@ -23,9 +33,14 @@
         "id": "one-punch-man",
         "name": "Ванпанчмен",
         "desc": "Да, я самый сильный, и что?",
-        "icon": "Icon.jpg",
-        "series": [
-
+        "icon": "icon.jpg",
+        "episodes": [],
+        "keyframes": [
+            "placeholder.jpg",
+            "placeholder.jpg",
+            "placeholder.jpg",
+            "placeholder.jpg",
+            "placeholder.jpg"
         ]
     },
 
@@ -33,9 +48,14 @@
         "id": "oniichan-wa-oshimai",
         "name": "Мой братик больше не братик!",
         "desc": "Однажды, проснувшись, я понял, что стал женщиной - и это кошмар!",
-        "icon": "Icon.jpg",
-        "series": [
-
+        "icon": "icon.jpg",
+        "episodes": [],
+        "keyframes": [
+            "placeholder.jpg",
+            "placeholder.jpg",
+            "placeholder.jpg",
+            "placeholder.jpg",
+            "placeholder.jpg"
         ]
     },
 
@@ -43,9 +63,46 @@
         "id": "vinland-saga",
         "name": "Сага о Винланде",
         "desc": "Чертовы викинги с 5 миллионами мощи, я вам еще покажу!!!",
-        "icon": "Icon.jpeg",
-        "series": [
- 
+        "icon": "icon.jpeg",
+        "episodes": [],
+        "keyframes": [
+            "placeholder.jpg",
+            "placeholder.jpg",
+            "placeholder.jpg",
+            "placeholder.jpg",
+            "placeholder.jpg"
+        ]
+    },
+
+    {
+        "id": "gokushufudou-season-2",
+        "name": "Путь домохозяина 2",
+        "desc": "Хахахах налоговую инспекцию вызывали???",
+        "icon": "icon.jpg",
+        "episodes": [
+            {"index": "1", "file": "1.mp4"}
+        ],
+        "keyframes": [
+            "placeholder.jpg",
+            "placeholder.jpg",
+            "placeholder.jpg",
+            "placeholder.jpg",
+            "placeholder.jpg"
+        ]
+    },
+
+    {
+        "id": "jidou-hanbaiki-ni-umarekawatta-ore-wa-meikyuu-wo-samayou",
+        "name": "Я переродился торговым автоматом",
+        "desc": "Окак",
+        "icon": "icon.jpeg",
+        "episodes": [],
+        "keyframes": [
+            "placeholder.jpg",
+            "placeholder.jpg",
+            "placeholder.jpg",
+            "placeholder.jpg",
+            "placeholder.jpg"
         ]
     }
 ]

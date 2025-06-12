@@ -1,20 +1,80 @@
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/styles/theme.css" rel="stylesheet">
-    <link href="/styles/list.css" rel="stylesheet">
-    <link href="/styles/header.css" rel="stylesheet">
-    <title>AniContent</title>
+    
+    <title>AniContent | <%= anime.name %> <%= episode %> серия</title>
+
+    <link rel="stylesheet" type="text/css" href="/styles/style.css">
+    <link rel="icon" href="/icons/logo.svg" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <%- include("./elements/header.ejs") %>
+    <div id="<%= id %>" class="content">
+        <%- include("./elements/header.ejs") %>
 
-    <div align="center" style="width: 50%;">
-        <video width="100%" controls>
-            <source src="/stream/<%= id %>/<%= index %>" type="video/mp4"/>
-            Your browser does not support the video tag.
-        </video>
+        <div class="watch">
+            <div class="video-container">
+                <div class="video-wrapper">
+                    <video class="video-player" id="video-player">
+                        <source src="/stream/<%= id %>/<%= episode %>" type="video/mp4">
+                        Ваш браузер не поддерживает видео тег.
+                    </video>
+                
+                    <div class="video-player-controls">
+                        <button class="video-player-button" id="state-button">
+                            <img src="/icons/play.svg" class="video-player-icon" id="play-icon">
+                            <img src="/icons/pause.svg" class="video-player-icon" id="pause-icon" style="display: none;">
+                        </button>
+                
+                        <div class="progress-bar" id="progress-bar">
+                            <div class="progress-bar-line" id="progress-bar-line"></div>
+                        </div>
+                
+                        <button class="video-player-button" id="volume-button">
+                            <img src="/icons/volume.svg" class="video-player-icon" id="volume-icon">
+                            <img src="/icons/mute.svg" class="video-player-icon" id="mute-icon" style="display: none;">
+                        </button>
+                
+                        <button class="video-player-button" id="fullscreen-button" style="margin-left: auto;">
+                            <img src="/icons/fullscreen.svg" class="video-player-icon">
+                        </button>
+                    </div>      
+                </div>
+            </div>
+
+            <div class="episodes">
+                <h1 class="episodes-title">Выбор серии</h1>
+                <% 
+                    if (anime.episodes) { 
+                        for (let i = 0; i < anime.episodes.length; i ++) { 
+                            if (anime.episodes[i].index == episode) {
+                                %> 
+                                <div class="accent-button episodes-button">
+                                    <h2 class="episodes-button-text"><%= anime.episodes[i].index %> серия</h2>
+                                </div>
+                                <%
+                            } else {
+                                %>
+                                <div id="<%= anime.episodes[i].index %>" class="dark-button episodes-button ">
+                                    <h2 class="episodes-button-text"><%= anime.episodes[i].index %> серия</h2>
+                                </div>
+                                <%
+                            }
+                        }
+                    } 
+                %>
+
+            </div>
+        </div>
+
+        <%- include("./elements/footer.ejs") %>
+
+        <script src="/scripts/video.handler.js"></script>
+        <script src="/scripts/episodes.handler.js"></script>
     </div>
 </body>
-</html>

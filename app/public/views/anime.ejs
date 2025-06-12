@@ -1,59 +1,61 @@
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/styles/theme.css" rel="stylesheet">
-    <link href="/styles/list.css" rel="stylesheet">
-    <link href="/styles/header.css" rel="stylesheet">
-    <style>
-        .container {
-            display: flex;
-            max-width: 100%;
-            margin: 0 auto;
-            padding-top: 15px;
-        }
-        .anime-image {
-            margin-right: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            border-radius: 15px
-        }
-        .anime-image img {
-            width: 300px;
-            height: 400px;
-            object-fit: contain;
-            border-radius: 15px;
-        }
-        .watch-button {
-            margin-top: 15px;
-            padding: 10px 30px;
-            background-color: rgb(30, 30, 30);
-            border: none;
-            border-radius: 25px;
-            color: rgb(255, 255, 255);
-            font-family: Arial, Helvetica, sans-serif;
-        }
-    </style>
-    <title>AniContent</title>
+    
+    <title>AniContent | <%= anime.name %></title>
+
+    <link rel="stylesheet" type="text/css" href="/styles/style.css">
+    <link rel="icon" href="/icons/logo.svg" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <%- include("./elements/header.ejs") %>
+    <div class="content">
+        <%- include("./elements/header.ejs") %>
 
-    <div class="container">
-        <div class="anime-image">
-            <img src="<%= icon %>">
-            <button id="<%= id %>" class="watch-button __watch">Смотреть</button>
-        </div>
-        
-        <div class="anime-info">
-            <h1 class="anime-title"><%= name %></h1>
-            <div class="anime-description">
-                <p><%= desc %></p>
+        <div class="info">
+            <div class="preview">
+                <img class="preview-image" src="<%= anime.icon %>">
+                <div id="<%= anime.id %>" class="watch-button accent-button">
+                    <h1 class="watch-button-text">Смотреть</h1>
+                </div>
+            </div>
+
+            <div class="data">
+                <div class="data-title">
+                    <h1 class="data-anime-title"><%= anime.name %></h1>
+                    <p class="data-anime-subtitle"><%= anime.id %></p>
+                </div>
+
+                <div class="data-desc">
+                    <h3 class="data-desc-title">Описание</h3>
+                    <p class="data-desc-text"><%= anime.desc %></p>
+                </div>
+
+                <div class="data-keyframes">
+                    <h3 class="data-keyframes-title">Кадры</h3>
+                    <div class="data-keyframes-container">
+                        <% 
+                            if (anime.keyframes) {
+                                let length = 5
+
+                                if (anime.keyframes.length < length) { length = anime.keyframes.length }
+
+                                for (let i = 0; i < length; i ++) { %>
+                                    <img class="data-keyframes-item" src="<%= anime.keyframes[i] %>" alt="">
+                                <% } 
+                            }
+                        %>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
 
-    <script src="/scripts/anime.js"></script>
+        <%- include("./elements/footer.ejs") %>
+        <script src="/scripts/trigger.handler.js"></script>
+    </div>
 </body>
-</html>

@@ -2,7 +2,7 @@ const path = require('path')
 
 const directory = path.join(process.cwd(), 'app')
 
-const images = '/images/'
+const images = '/images/anime'
 const videos = path.join(directory, 'public', 'videos')
 
 let animes = []
@@ -15,21 +15,29 @@ class Anime {
         this.desc = config.desc
 
         this.icon = ''
-        this.series = []
+        this.episodes = []
+        this.keyframes = []
 
         this._setIcon(config.icon)
-        this._setSeries(config.series)
+        this._setSeries(config.episodes)
+        this._setKeyframes(config.keyframes)
 
         animes.push(this)
     }
 
     _setIcon(file) {
-        this.icon = path.join(images, this.id, file)
+        this.icon = `${images}/${this.id}/${file}`
     }
 
-    _setSeries(series) {
-        for (const episode of series) {
-            this.series.push({
+    _setKeyframes(keyframes) {
+        for (const keyframe of keyframes) {
+            this.keyframes.push(`${images}/${this.id}/keyframes/${keyframe}`)
+        }
+    }
+
+    _setSeries(episodes) {
+        for (const episode of episodes) {
+            this.episodes.push({
                 index: episode.index, 
                 file: path.join(videos, this.id, episode.file)
             })
@@ -37,7 +45,7 @@ class Anime {
     }
 
     getEpisode(index) {
-        for (const episode of this.series) {
+        for (const episode of this.episodes) {
             if (episode.index != index) { continue }
             return episode
         }

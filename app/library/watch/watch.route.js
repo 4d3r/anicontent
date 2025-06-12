@@ -11,14 +11,15 @@ function getPage(request, response) {
     const template = controller.getPageTemplate()
     const data = {
         id: request.params.id,
-        index: request.params.index
+        episode: request.params.episode,
+        anime: controller.getAnimeData(request.params.id)
     }
 
-    if (!data.index) {
-        data.index = 1
+    if (!data.episode) {
+        data.episode = 1
     }
 
-    if (!controller.getVideo(data.id, data.index)) {
+    if (!controller.getVideo(data.id, data.episode)) {
         response.status(404).render(errorPage)
         return
     }
@@ -31,7 +32,7 @@ function getPage(request, response) {
     response.render(template, data)
 }
 
-router.get('/:id/:index', getPage)
+router.get('/:id/:episode', getPage)
 router.get('/:id/', getPage)
 
 module.exports = router

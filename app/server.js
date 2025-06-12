@@ -30,8 +30,6 @@ function setupRoutes() {
     })
 }
 
-console.log("Current working directory: ", directory);
-
 app.set('view engine', 'ejs')
 app.use(express.static(public))
 
@@ -55,5 +53,5 @@ app.use(function(req, res, next) {
 });
 
 app.listen(port, () => {
-    console.log(`Server is listening on port ${port}`)
+    console.log(`----------------------------------- \nServer is listening on port ${port}\n-----------------------------------` )
 })

@@ -1,31 +1,47 @@
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/styles/theme.css" rel="stylesheet">
-    <link href="/styles/list.css" rel="stylesheet">
-    <link href="/styles/header.css" rel="stylesheet">
-    <title>AniContent</title>
+
+    <title>AniContent | Каталог</title>
+
+    <link rel="stylesheet" type="text/css" href="/styles/style.css">
+    <link rel="icon" href="/icons/logo.svg" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <%- include("./elements/header.ejs") %>
+    <div class="content">
+        <%- include("./elements/header.ejs") %>
 
-    <div class="objects-list">
-        <% 
-        for (let i = 0; i < animes.length; i ++) { 
-            %>
-            <div id="<%= animes[i].id %>" class="object-base __trigger">
-                <div class="object-container">
-                    <img src="<%= animes[i].icon %>" alt="Example Image">
-                    <div class="object-gradient"></div>
-                    <div class="object-title"><%= animes[i].name %></div>
+        <div class="catalog">
+            <h1 class="title">Каталог</h1>
+            <p class="text">Вообще все аниме, которые только есть на нашем сайте</p>
+            <div class="catalog-array">
+                <div class="catalog-array-wrapper">
+                    <% 
+                        for (let i=0; i < animes.length; i ++) { %>
+                            <div id="<%= animes[i].id %>" class="anime">
+                                <div class="anime-icon" style="background: url('<%= animes[i].icon %>') center no-repeat; background-size: cover;">
+                                    <p class="anime-episodes">
+                                        <%= animes[i].episodes.length %> серий
+                                    </p>
+                                </div>
+                                <h2 class="anime-name">
+                                    <%= animes[i].name %>
+                                </h2>
+                            </div>
+                        <% 
+                        } 
+                    %>
                 </div>
             </div>
-            <% 
-        } 
-        %>
-    </div>
+        </div>
 
-    <script src="../scripts/home.js"></script>
+        <%- include("./elements/footer.ejs") %>
+
+    </div>
 </body>
-</html>

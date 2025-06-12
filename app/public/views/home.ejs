@@ -1,51 +1,157 @@
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/styles/theme.css" rel="stylesheet">
-    <link href="/styles/list.css" rel="stylesheet">
-    <link href="/styles/header.css" rel="stylesheet">
-    <title>AniContent</title>
+    
+    <title>AniContent | Главная</title>
+
+    <link rel="stylesheet" type="text/css" href="/styles/style.css">
+    <link rel="icon" href="/icons/logo.svg" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <%- include("./elements/header.ejs") %>
+    <div class="content">
+        <%- include("./elements/header.ejs") %>
 
-    <p>Последние обновления</p>
-    <div class="objects-list">
-        <% 
-        for (let i = 0; i < latest.length; i ++) { 
-            %>
-            <div id="<%= latest[i].id %>" class="object-base __trigger">
-                <div class="object-container">
-                    <img src="<%= latest[i].icon %>" alt="Example Image">
-                    <div class="object-gradient"></div>
-                    <div class="object-title"><%= latest[i].name %></div>
-                </div>
+        <div class="welcome">
+            <h1 class="welcome-title">Добро пожаловать!</h1>
+            <p class="welcome-text">Новый сайт по треш озвучке уже здесь, встречайте - Anicontent!</p>
+            <p class="welcome-text">Абсолютно никому не нужный, он явился ради того, чтоб разорвать ваши <br>уши и раздробить мозговой отдел, ведь идеальная озвучка - только в мечтах</p>
+            <p class="welcome-text">Ну чего ты ждешь, давай, кабанчиком, побежал смотреть новый выпуск <br>мусорного иссекая!</p>
+        </div>
+
+        <div class="latest">
+            <h1 class="title">Новые эпизоды</h1>
+            <p class="text">Самые новые серии ваших любимых аниме в ужасной озвучке</p>
+
+            <div class="latest-array">
+                <% 
+                let latestLength = 7
+                if (latest.length < latestLength) { latestLength = latest.length }
+
+                for (let i = 0; i < latestLength; i ++) { %>
+                    <div id="<%= latest[i].id %>" class="anime">
+                        <div class="anime-icon" style="background: url('<%= latest[i].icon %>') center no-repeat; background-size: cover;" >
+                            <p class="anime-episodes"><%= latest[i].episodes.length %> серия</p>
+                        </div>
+                        <h2 class="anime-name">
+                            <%= latest[i].name %>
+                        </h2>
+                    </div>
+                    <%
+                }
+                %>
             </div>
-            <% 
-        } 
-        %>
-    </div>
+        </div>
 
-    <p>Популярные</p>
-    <div class="objects-list">
-        <% 
-        for (let i = 0; i < favorited.length; i ++) { 
-            %>
-            <div id="<%= favorited[i].id %>" class="object-base __trigger">
-                <div class="object-container">
-                    <img src="<%= favorited[i].icon %>" alt="Example Image">
-                    <div class="object-gradient"></div>
-                    <div class="object-title"><%= favorited[i].name %></div>
+        <div class="favorited">
+            <h1 class="title">Сейчас смотрят</h1>
+            <p class="text">Популярные аниме,которые смотрят, через силу, right now!</p>
+
+            <div class="favorited-array">
+                <div class="favorited-array-column">
+                    <h1 class="white-text">Завершенные</h1>
+                    <% 
+                    let endedLength = 3
+                    if (favorited.length < endedLength) { endedLength = favorited.length }
+
+                    for (let i=0; i < endedLength; i ++) { %>
+                        <div id="<%= favorited[i].id %>" class="small-anime">
+                            <div 
+                            style="
+                                background: url('<%= favorited[i].icon %>'); 
+                                background-size: cover;
+                                background-repeat: no-repeat;
+                                background-position: center;
+                            " 
+                            class="small-anime-icon">
+                            </div>
+
+                            <div class="small-anime-info">
+                                <h3 class="small-anime-name">
+                                    <%= favorited[i].name %>
+                                </h3>
+                                <p class="small-anime-episodes">
+                                    <%= favorited[i].episodes.length %> серий
+                                </p>
+                            </div>
+                        </div>
+                        <% 
+                    } 
+                    %>
                 </div>
+
+                <div class="favorited-array-column">
+                    <h1 class="white-text">Онгойнг</h1>
+                    <% 
+                    let ongoingLength=3 
+                    if (favorited.length < ongoingLength) { ongoingLength = favorited.length } 
+                    
+                    for (let i=0; i < ongoingLength; i ++) { %>
+                        <div id="<%= favorited[i].id %>" class="small-anime">
+                            <div style="
+                                background: url('<%= favorited[i].icon %>'); 
+                                background-size: cover;
+                                background-repeat: no-repeat;
+                                background-position: center;
+                            " 
+                            class="small-anime-icon">
+                            </div>
+                    
+                            <div class="small-anime-info">
+                                <h3 class="small-anime-name">
+                                    <%= favorited[i].name %>
+                                </h3>
+                                <p class="small-anime-episodes">
+                                    <%= favorited[i].episodes.length %> серий
+                                </p>
+                            </div>
+                        </div>
+                        <% 
+                    } 
+                    %>
+                </div>
+
+                <div class="favorited-array-column">
+                    <h1 class="white-text">Полнометражное</h1>
+
+                    <% 
+                    let filmsLength = 3 
+                    if (favorited.length < filmsLength) { filmsLength = favorited.length } 
+                    
+                    for (let i=0; i < filmsLength; i ++) { %>
+                        <div id="<%= favorited[i].id %>" class="small-anime">
+                            <div style="
+                                background: url('<%= favorited[i].icon %>'); 
+                                background-size: cover;
+                                background-repeat: no-repeat;
+                                background-position: center;
+                            " 
+                            class="small-anime-icon">
+                            </div>
+                    
+                            <div class="small-anime-info">
+                                <h3 class="small-anime-name">
+                                    <%= favorited[i].name %>
+                                </h3>
+                                <p class="small-anime-episodes">
+                                    <%= favorited[i].episodes.length %> серий
+                                </p>
+                            </div>
+                        </div>
+                        <% 
+                    } 
+                    %>
+                </div>
+
             </div>
-            <% 
-        } 
-        %>
+        </div>
+
+        <%- include("./elements/footer.ejs") %>
+        <script src="/scripts/select.handler.js"></script>
     </div>
-
-    
-
-    <script src="/scripts/home.js"></script>
 </body>
-</html>

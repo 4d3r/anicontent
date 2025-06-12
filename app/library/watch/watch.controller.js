@@ -15,18 +15,23 @@ function getPageTemplate() {
     return path.join(views, 'watch')
 }
 
-function getVideo(id, index) {
+function getAnimeData(id) {
+    return animeService.findAnime(id)
+}
+
+function getVideo(id, episode) {
     const anime = animeService.findAnime(id)
     if (!anime) { return }
 
-    const episode = anime.getEpisode(index)
-    if (!episode) { return }
-    if (!episode.file) { return }
+    const content = anime.getEpisode(episode)
+    if (!content) { return }
+    if (!content.file) { return }
 
-    return episode.file
+    return content.file
 }
 
 module.exports = {
     getPageTemplate,
     getVideo,
+    getAnimeData
 }

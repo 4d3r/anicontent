@@ -21,7 +21,9 @@ function getPage(request, response) {
         return
     }
 
-    response.render(template, data)
+    response.render(template, {
+        anime: data
+    })
 }
 
 router.get('/:id', getPage)

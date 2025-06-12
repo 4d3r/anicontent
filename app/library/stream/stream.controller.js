@@ -15,8 +15,6 @@ function getFile(id, index) {
     if (!episode) { return }
     if (!episode.file) { return }
 
-    console.log(episode.file)
-
     return episode.file
 }
 
