@@ -6,11 +6,11 @@
         "icon": "icon.jpg",
         "episodes": [],
         "keyframes": [
-            "placeholder.jpg",
-            "placeholder.jpg",
-            "placeholder.jpg",
-            "placeholder.jpg",
-            "placeholder.jpg"
+            "1.jpg",
+            "2.jpg",
+            "3.jpg",
+            "4.jpg",
+            "5.jpg"
         ]
     },
 
@@ -19,13 +19,15 @@
         "name": "Этот замечательный мир!",
         "desc": "Я иссекайнулся в какой-то дыре и теперь у менять есть гарем из тупоголовых баб!",
         "icon": "icon.jpg",
-        "episodes": [],
+        "episodes": [
+            {"index": "1", "file": "1.mp4"}
+        ],
         "keyframes": [
-            "placeholder.jpg",
-            "placeholder.jpg",
-            "placeholder.jpg",
-            "placeholder.jpg",
-            "placeholder.jpg"
+            "1.jpg",
+            "2.jpg",
+            "3.jpg",
+            "4.jpg",
+            "5.jpg"
         ]
     },
 
@@ -34,13 +36,16 @@
         "name": "Ванпанчмен",
         "desc": "Да, я самый сильный, и что?",
         "icon": "icon.jpg",
-        "episodes": [],
+        "episodes": [
+            {"index": "1", "file": "2.mp4"},
+            {"index": "2", "file": "2.mp4"}
+        ],
         "keyframes": [
-            "placeholder.jpg",
-            "placeholder.jpg",
-            "placeholder.jpg",
-            "placeholder.jpg",
-            "placeholder.jpg"
+            "1.png",
+            "2.png",
+            "3.png",
+            "4.png",
+            "5.png"
         ]
     },
 
@@ -51,11 +56,11 @@
         "icon": "icon.jpg",
         "episodes": [],
         "keyframes": [
-            "placeholder.jpg",
-            "placeholder.jpg",
-            "placeholder.jpg",
-            "placeholder.jpg",
-            "placeholder.jpg"
+            "1.jpg",
+            "2.jpg",
+            "3.jpg",
+            "4.jpg",
+            "5.jpg"
         ]
     },
 
@@ -66,11 +71,11 @@
         "icon": "icon.jpeg",
         "episodes": [],
         "keyframes": [
-            "placeholder.jpg",
-            "placeholder.jpg",
-            "placeholder.jpg",
-            "placeholder.jpg",
-            "placeholder.jpg"
+            "1.jpg",
+            "2.jpg",
+            "3.jpg",
+            "4.jpg",
+            "5.jpg"
         ]
     },
 
@@ -83,11 +88,11 @@
             {"index": "1", "file": "1.mp4"}
         ],
         "keyframes": [
-            "placeholder.jpg",
-            "placeholder.jpg",
-            "placeholder.jpg",
-            "placeholder.jpg",
-            "placeholder.jpg"
+            "1.jpg",
+            "2.jpg",
+            "3.jpg",
+            "4.jpg",
+            "5.jpg"
         ]
     },
 
@@ -98,11 +103,11 @@
         "icon": "icon.jpeg",
         "episodes": [],
         "keyframes": [
-            "placeholder.jpg",
-            "placeholder.jpg",
-            "placeholder.jpg",
-            "placeholder.jpg",
-            "placeholder.jpg"
+            "1.jpg",
+            "2.jpg",
+            "3.jpg",
+            "4.jpg",
+            "5.jpg"
         ]
     }
 ]
